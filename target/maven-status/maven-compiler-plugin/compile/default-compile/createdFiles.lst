@@ -1,0 +1,9 @@
+com\calculator2\appium\screens\CalculatorGoogleScreen.class
+com\calculator2\appium\App.class
+com\calculator2\appium\drivers\strategies\DriverStrategyImplementer.class
+com\calculator2\appium\drivers\utils\TargetEnvironment.class
+com\calculator2\appium\drivers\DriverSingleton.class
+com\calculator2\appium\drivers\managers\AndroidCalculatorManager.class
+com\calculator2\appium\drivers\managers\AndroidGoogleCalculatorManager.class
+com\calculator2\appium\drivers\utils\TimeDuration.class
+com\calculator2\appium\drivers\managers\AndroidEcommerceManager.class

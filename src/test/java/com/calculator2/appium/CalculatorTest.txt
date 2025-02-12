@@ -1,0 +1,92 @@
+package com.calculator2.appium;
+
+import java.io.IOException;
+import java.net.URL;
+import java.time.Duration;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+import io.appium.java_client.AppiumBy;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+
+public class CalculatorTest {
+    AndroidDriver driver;
+    DesiredCapabilities capabilities;
+    UiAutomator2Options options;
+
+    public void launchApp() throws InterruptedException, IOException {
+        ProcessBuilder pb = new ProcessBuilder(
+            "C:\\Windows\\System32\\cmd.exe",
+            "/c",
+            "adb.exe", "shell", "monkey", 
+            "-p", "com.miui.calculator", 
+            "-c", "android.intent.category.LAUNCHER", "1"
+        );
+        Process pc = pb.start();
+        pc.waitFor();
+    }
+
+    @BeforeTest
+    public void setup() throws InterruptedException, IOException {
+        launchApp();
+
+        capabilities = new DesiredCapabilities();
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("appium:deviceName", "RR8T90084BR");
+        capabilities.setCapability("appium:automationName", "UiAutomator2");
+
+        options = new UiAutomator2Options();
+        options.merge(capabilities);
+        
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
+
+    @Test
+    public void penjumlahanTest() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement buttonClear = driver.findElement(AppiumBy.accessibilityId("bersih"));
+        WebElement buttonNine = driver.findElement(AppiumBy.id("com.miui.calculator:id/btn_9_s"));
+        WebElement buttonPlus = driver.findElement(AppiumBy.accessibilityId("tambah"));
+        WebElement buttonFive = driver.findElement(AppiumBy.id("com.miui.calculator:id/btn_5_s"));
+        WebElement buttonEqual = driver.findElement(AppiumBy.accessibilityId("sama dengan"));
+
+        buttonClear.click();
+        buttonNine.click();
+        buttonPlus.click();
+        buttonFive.click();
+        buttonEqual.click();
+
+        // Tunggu hingga elemen hasil muncul
+        WebElement textEdit = wait.until(ExpectedConditions.visibilityOfElementLocated(
+            AppiumBy.id("com.miui.calculator:id/result")
+        ));
+
+        Assert.assertEquals(textEdit.getText(), "= 14");
+    }
+
+    @AfterTest
+    public void tearDown() throws IOException, InterruptedException {
+        if (driver != null) {
+        driver.quit();
+    }
+
+    // Hentikan aplikasi secara paksa setelah pengujian selesai
+        ProcessBuilder pb = new ProcessBuilder(
+            "C:\\Windows\\System32\\cmd.exe",
+            "/c",
+            "adb.exe", "shell", "am", "force-stop", "com.miui.calculator"
+        );
+        Process pc = pb.start();
+        pc.waitFor();
+    }
+
+    
+}

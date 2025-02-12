@@ -1,0 +1,10 @@
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\App.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\DriverSingleton.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\managers\AndroidCalculatorManager.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\managers\AndroidEcommerceManager.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\managers\AndroidGoogleCalculatorManager.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\strategies\DriverStrategyImplementer.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\utils\TargetEnvironment.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\drivers\utils\TimeDuration.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\screens\CalculatorGoogleScreen.java
+D:\JuaraCoding\Apium\test\AppiumCalculator2Test\src\main\java\com\calculator2\appium\screens\CalculatorScreen.java

@@ -1,0 +1,3 @@
+com\calculator2\appium\steps\PenjumlahanSteps.class
+com\calculator2\appium\runners\RunnerTest.class
+com\calculator2\appium\hooks\Hook.class
