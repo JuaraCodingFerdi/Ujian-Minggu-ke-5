@@ -4,11 +4,12 @@
 Proyek ini bertujuan untuk mengotomatisasi pengujian fitur penjumlahan pada Kalkulator Google menggunakan Data-Driven Testing (DDT). Pengujian ini memastikan bahwa kalkulator dapat memberikan hasil yang benar untuk berbagai kombinasi angka yang diuji.
 
 ## Teknologi yang Digunakan
+- Appium
 - Selenium WebDriver
 - Cucumber
 - Gherkin
 - Java/Python (sesuai kebutuhan proyek)
-- TestNG/JUnit
+- TestNG
 
 ## Instalasi
 1. Clone repositori:
@@ -21,7 +22,12 @@ Proyek ini bertujuan untuk mengotomatisasi pengujian fitur penjumlahan pada Kalk
    pip install -r requirements.txt # Jika menggunakan Python
    mvn clean install # Jika menggunakan Java dan Maven
    ```
-3. Jalankan pengujian:
+3. Pastikan perangkat HP telah terhubung dengan kabel USB dan mode debugging diaktifkan.
+4. Jalankan server Appium:
+   ```sh
+   appium
+   ```
+5. Jalankan pengujian:
    ```sh
    mvn test
    # atau
@@ -47,7 +53,12 @@ Proyek ini bertujuan untuk mengotomatisasi pengujian fitur penjumlahan pada Kalk
 
 ## Cara Menjalankan Pengujian
 1. Pastikan semua dependensi telah terinstal.
-2. Jalankan pengujian sesuai dengan teknologi yang digunakan:
+2. Pastikan perangkat mobile terhubung dengan kabel USB dan terdeteksi oleh `adb devices`.
+3. Jalankan server Appium:
+   ```sh
+   appium
+   ```
+4. Jalankan pengujian sesuai dengan teknologi yang digunakan:
    ```sh
    mvn test  # Jika menggunakan Java
    pytest  # Jika menggunakan Python
@@ -63,6 +74,4 @@ Setelah menjalankan pengujian, laporan hasil dapat ditemukan di folder `target/r
 3. Commit perubahan (`git commit -m 'Menambahkan fitur X'`).
 4. Push ke branch baru (`git push origin feature/nama_fitur`).
 5. Ajukan pull request.
-
-
 
